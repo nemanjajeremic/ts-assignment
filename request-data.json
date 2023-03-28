@@ -89,7 +89,6 @@
         "main_key": "w"
       }
     },
-
     "invalidValue": {
       "method": "put",
       "maxBodyLength": "Infinity",
@@ -106,6 +105,118 @@
       "headers": { "Content-Type": "application/json" },
       "data": {}
     },
+    "quota": [
+      {
+        "method": "put",
+        "maxBodyLength": "Infinity",
+        "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+        "headers": { "Content-Type": "application/json" },
+        "data": {
+          "main_key": "w01",
+          "value": "xxy"
+        }
+      },
+      {
+        "method": "put",
+        "maxBodyLength": "Infinity",
+        "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+        "headers": { "Content-Type": "application/json" },
+        "data": {
+          "main_key": "w02",
+          "value": "xxy"
+        }
+      },
+      {
+        "method": "put",
+        "maxBodyLength": "Infinity",
+        "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+        "headers": { "Content-Type": "application/json" },
+        "data": {
+          "main_key": "w03",
+          "value": "xxy"
+        }
+      },
+      {
+        "method": "put",
+        "maxBodyLength": "Infinity",
+        "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+        "headers": { "Content-Type": "application/json" },
+        "data": {
+          "main_key": "w04",
+          "value": "xxy"
+        }
+      },
+      {
+        "method": "put",
+        "maxBodyLength": "Infinity",
+        "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+        "headers": { "Content-Type": "application/json" },
+        "data": {
+          "main_key": "w05",
+          "value": "xxy"
+        }
+      },
+      {
+        "method": "put",
+        "maxBodyLength": "Infinity",
+        "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+        "headers": { "Content-Type": "application/json" },
+        "data": {
+          "main_key": "w06",
+          "value": "xxy"
+        }
+      },
+      {
+        "method": "put",
+        "maxBodyLength": "Infinity",
+        "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+        "headers": { "Content-Type": "application/json" },
+        "data": {
+          "main_key": "w07",
+          "value": "xxy"
+        }
+      },
+      {
+        "method": "put",
+        "maxBodyLength": "Infinity",
+        "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+        "headers": { "Content-Type": "application/json" },
+        "data": {
+          "main_key": "w08",
+          "value": "xxy"
+        }
+      },
+      {
+        "method": "put",
+        "maxBodyLength": "Infinity",
+        "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+        "headers": { "Content-Type": "application/json" },
+        "data": {
+          "main_key": "w09",
+          "value": "xxy"
+        }
+      },
+      {
+        "method": "put",
+        "maxBodyLength": "Infinity",
+        "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+        "headers": { "Content-Type": "application/json" },
+        "data": {
+          "main_key": "w010",
+          "value": "xxy"
+        }
+      },
+      {
+        "method": "put",
+        "maxBodyLength": "Infinity",
+        "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+        "headers": { "Content-Type": "application/json" },
+        "data": {
+          "main_key": "w11",
+          "value": "xxy"
+        }
+      }
+    ],
     "replace": {
       "method": "put",
       "maxBodyLength": "Infinity",

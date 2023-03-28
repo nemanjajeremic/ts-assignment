@@ -8,6 +8,22 @@ describe("Verify PUT endpoint", function () {
     await sendRequest(testData.put.delete);
   });
 
+  after(async function () {
+    let responseX = await sendRequest(testData.get.positive);
+    let getCurrentArraySizeX = await responseX.data.length;
+    for (let index = 0; index < getCurrentArraySizeX; index++) {
+      await axios.request({
+        method: "delete",
+        maxBodyLength: "Infinity",
+        url: "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+        headers: { "Content-Type": "application/json" },
+        data: {
+          main_key: `${responseX.data[index]["main_key"]}`,
+        },
+      });
+    }
+  });
+
   it("Verify that put returns 200 and OK", async function () {
     let response = await sendRequest(testData.put.positive);
 
@@ -59,14 +75,13 @@ describe("Verify PUT endpoint", function () {
     expect(result).to.deep.equal(testData.put.replace.data);
   });
 
-  it("Verify error if quota is excedeed", async function () {
-    //TODO set up this
+  it.only("Verify error if quota is excedeed", async function () {
     let response = await sendRequest(testData.get.positive);
     let getCurrentArraySize = await response.data.length;
-    // add a resource, should fail
-    if (getCurrentArraySize >= 10) {
+    let max = 10;
+    for (let index = getCurrentArraySize; index < max; index++) {
       try {
-        await axios.request(testData.put.positive);
+        await axios.request(testData.put.quota[index]);
         // check new size
         response = await axios.request(testData.get.positive);
       } catch (error) {
@@ -96,6 +111,18 @@ describe("Verify PUT endpoint", function () {
       expect(error.response.status).to.equal(400);
       expect(error.response.statusText).to.equal("Bad Request");
       expect(error.response.data).to.equal("'main_key'");
+    }
+  });
+
+  it("Verify error if you try to PUT with existing value", async function () {
+    let response;
+    await sendRequest(testData.put.positive);
+    try {
+      response = await axios.request(testData.put.positive);
+    } catch (error) {
+      expect(error.response.status).to.equal(400);
+      expect(error.response.statusText).to.equal("Bad Request");
+      expect(error.response.data).to.equal("value already exist");
     }
   });
 });
