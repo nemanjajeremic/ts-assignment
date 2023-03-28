@@ -5,13 +5,14 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "mocha --timeout 10000"
+    "test": "mocha --reporter mochawesome --timeout 10000"
   },
   "author": "Nemanja Jeremic",
   "license": "ISC",
   "devDependencies": {
     "axios": "^1.3.4",
     "chai": "^4.3.7",
-    "mocha": "^10.2.0"
+    "mocha": "^10.2.0",
+    "mochawesome": "^7.1.3"
   }
 }
