@@ -42,7 +42,7 @@
         "value": "replaced"
       }
     },
-    "invalid": {
+    "invalidValue": {
       "method": "post",
       "maxBodyLength": "Infinity",
       "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
@@ -50,6 +50,13 @@
       "data": {
         "main_key": "w"
       }
+    },
+    "invalidMainkey": {
+      "method": "post",
+      "maxBodyLength": "Infinity",
+      "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+      "headers": { "Content-Type": "application/json" },
+      "data": {}
     },
     "delete": {
       "method": "delete",
@@ -83,7 +90,7 @@
       }
     },
 
-    "invalid": {
+    "invalidValue": {
       "method": "put",
       "maxBodyLength": "Infinity",
       "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
@@ -91,6 +98,13 @@
       "data": {
         "main_key": "w"
       }
+    },
+    "invalidMainkey": {
+      "method": "put",
+      "maxBodyLength": "Infinity",
+      "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+      "headers": { "Content-Type": "application/json" },
+      "data": {}
     },
     "replace": {
       "method": "put",
