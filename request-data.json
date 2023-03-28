@@ -1,0 +1,134 @@
+{
+  "get": {
+    "positive": {
+      "method": "get",
+      "maxBodyLength": "Infinity",
+      "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+      "headers": { "Content-Type": "application/json" }
+    },
+    "negative": {
+      "method": "get",
+      "maxBodyLength": "Infinity",
+      "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+      "headers": {},
+      "data": "<test>"
+    }
+  },
+  "post": {
+    "positive": {
+      "method": "post",
+      "maxBodyLength": "Infinity",
+      "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+      "headers": { "Content-Type": "application/json" },
+      "data": {
+        "main_key": "w",
+        "value": "xx"
+      }
+    },
+    "negative": {
+      "method": "post",
+      "maxBodyLength": "Infinity",
+      "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+      "headers": { "Content-Type": "text/html" },
+      "data": "a"
+    },
+    "replace": {
+      "method": "post",
+      "maxBodyLength": "Infinity",
+      "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+      "headers": { "Content-Type": "application/json" },
+      "data": {
+        "main_key": "w",
+        "value": "replaced"
+      }
+    },
+    "invalid": {
+      "method": "post",
+      "maxBodyLength": "Infinity",
+      "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+      "headers": { "Content-Type": "application/json" },
+      "data": {
+        "main_key": "w"
+      }
+    },
+    "delete": {
+      "method": "delete",
+      "maxBodyLength": "Infinity",
+      "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+      "headers": { "Content-Type": "application/json" },
+      "data": {
+        "main_key": "w"
+      }
+    }
+  },
+
+  "put": {
+    "positive": {
+      "method": "put",
+      "maxBodyLength": "Infinity",
+      "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+      "headers": { "Content-Type": "application/json" },
+      "data": {
+        "main_key": "w",
+        "value": "xxy"
+      }
+    },
+    "delete": {
+      "method": "delete",
+      "maxBodyLength": "Infinity",
+      "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+      "headers": { "Content-Type": "application/json" },
+      "data": {
+        "main_key": "w"
+      }
+    },
+
+    "invalid": {
+      "method": "put",
+      "maxBodyLength": "Infinity",
+      "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+      "headers": { "Content-Type": "application/json" },
+      "data": {
+        "main_key": "w"
+      }
+    },
+    "replace": {
+      "method": "put",
+      "maxBodyLength": "Infinity",
+      "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+      "headers": { "Content-Type": "application/json" },
+      "data": {
+        "main_key": "w",
+        "value": "replaced"
+      }
+    }
+  },
+  "delete": {
+    "positive": {
+      "method": "delete",
+      "maxBodyLength": "Infinity",
+      "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+      "headers": { "Content-Type": "application/json" },
+      "data": {
+        "main_key": "34567"
+      }
+    },
+    "negative": {
+      "method": "delete",
+      "maxBodyLength": "Infinity",
+      "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+      "headers": { "Content-Type": "application/json" },
+      "data": { "main_key": "unexisting key" }
+    },
+    "toBeDeleted": {
+      "method": "put",
+      "maxBodyLength": "Infinity",
+      "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
+      "headers": { "Content-Type": "application/json" },
+      "data": {
+        "main_key": "34567",
+        "value": "replaced"
+      }
+    }
+  }
+}

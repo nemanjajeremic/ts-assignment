@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Home assigment for Team Sava interview",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --timeout 10000"
   },
   "author": "Nemanja Jeremic",
   "license": "ISC",
