@@ -6,15 +6,12 @@ import { beforeEach } from "mocha";
 
 describe("Team Sava", function () {
   describe("Verify DELETE endpoint", function () {
-    //TODO wrap axios in try/catch
-
     beforeEach(async function () {
       await sendRequest(testData.delete.toBeDeleted);
     });
     after(async function () {
       await sendRequest(testData.delete.positive);
     });
-    // TODO create a resource to be deleted
     it("Verify that DELETE returns 200 and OK", async function () {
       const response = await sendRequest(testData.delete.positive);
       expect(response.status, "Status is not 200").to.equal(200);

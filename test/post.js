@@ -40,7 +40,6 @@ describe("Team Sava", function () {
       let response = await sendRequest(testData.get.positive);
       getCurrentArraySize = await response.data.length;
 
-      // add a resource
       if (getCurrentArraySize >= 10) {
         throw Error(
           "Maximum quota of 10 exceeded. Please delete some resources in order to add new resources."
