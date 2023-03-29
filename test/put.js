@@ -1,15 +1,18 @@
 import axios from "axios";
 import { expect } from "chai";
-import { sendRequest } from "./utility.js";
+import {
+  sendPutRequest,
+  sendGetRequest,
+  sendDeleteRequest,
+} from "./utility.js";
 import testData from "../request-data.json" assert { type: "json" };
 
 describe("Verify PUT endpoint", function () {
   afterEach(async function () {
-    await sendRequest(testData.put.delete);
+    await sendDeleteRequest(testData.put.delete);
   });
-
   after(async function () {
-    let responseX = await sendRequest(testData.get.positive);
+    let responseX = await sendGetRequest(testData.get.positive);
     let getCurrentArraySizeX = await responseX.data.length;
     for (let index = 0; index < getCurrentArraySizeX; index++) {
       await axios.request({
@@ -25,7 +28,7 @@ describe("Verify PUT endpoint", function () {
   });
 
   it("Verify that put returns 200 and OK", async function () {
-    let response = await sendRequest(testData.put.positive);
+    let response = await sendPutRequest(testData.put.positive);
 
     expect(
       response.status,
@@ -35,7 +38,7 @@ describe("Verify PUT endpoint", function () {
   });
 
   it("Verify that put returns right content-type", async function () {
-    let response = await sendRequest(testData.put.positive);
+    let response = await sendPutRequest(testData.put.positive);
 
     expect(
       response.headers["content-type"],
@@ -44,16 +47,16 @@ describe("Verify PUT endpoint", function () {
   });
 
   it("Verify that put returns added resource", async function () {
-    let response = await sendRequest(testData.put.positive);
+    let response = await sendPutRequest(testData.put.positive);
 
     expect(response.data).to.deep.equal(testData.put.positive.data);
   });
 
   it("Verify that put request adds a resource", async function () {
-    let response = await sendRequest(testData.get.positive);
+    let response = await sendGetRequest(testData.get.positive);
     let getCurrentArraySize = await response.data.length;
     // add a resource
-    await sendRequest(testData.put.positive);
+    await sendPutRequest(testData.put.positive);
     // check new size
     response = await axios.request(testData.get.positive);
 
@@ -65,31 +68,14 @@ describe("Verify PUT endpoint", function () {
   });
 
   it("Verify that put replaces existing resource", async function () {
-    let response = await sendRequest(testData.get.positive);
+    let response = await sendGetRequest(testData.get.positive);
 
-    await sendRequest(testData.put.positive);
+    await sendPutRequest(testData.put.positive);
     //replace a resource using PUT
-    response = await sendRequest(testData.get.positive);
+    response = await sendGetRequest(testData.get.positive);
 
     let result = response.data.find((item) => item.main_key === "w");
     expect(result).to.deep.equal(testData.put.replace.data);
-  });
-
-  it.only("Verify error if quota is excedeed", async function () {
-    let response = await sendRequest(testData.get.positive);
-    let getCurrentArraySize = await response.data.length;
-    let max = 10;
-    for (let index = getCurrentArraySize; index < max; index++) {
-      try {
-        await axios.request(testData.put.quota[index]);
-        // check new size
-        response = await axios.request(testData.get.positive);
-      } catch (error) {
-        expect(error.response.status).to.equal(400);
-        expect(error.response.statusText).to.equal("Bad Request");
-        expect(error.response.data).to.equal("you reached your quta");
-      }
-    }
   });
 
   it("Verify error if you try to create a resource with PUT without value", async function () {
@@ -116,13 +102,30 @@ describe("Verify PUT endpoint", function () {
 
   it("Verify error if you try to PUT with existing value", async function () {
     let response;
-    await sendRequest(testData.put.positive);
+    await sendPutRequest(testData.put.positive);
     try {
       response = await axios.request(testData.put.positive);
     } catch (error) {
       expect(error.response.status).to.equal(400);
       expect(error.response.statusText).to.equal("Bad Request");
       expect(error.response.data).to.equal("value already exist");
+    }
+  });
+
+  it("Verify error if quota is excedeed", async function () {
+    let response = await sendGetRequest(testData.get.positive);
+    let getCurrentArraySize = await response.data.length;
+    let max = 10;
+    for (let index = getCurrentArraySize; index < max; index++) {
+      try {
+        await axios.request(testData.put.quota[index]);
+        // check new size
+        response = await axios.request(testData.get.positive);
+      } catch (error) {
+        expect(error.response.status).to.equal(400);
+        expect(error.response.statusText).to.equal("Bad Request");
+        expect(error.response.data).to.equal("you reached your quta");
+      }
     }
   });
 });

@@ -1,11 +1,11 @@
 import axios from "axios";
 import { expect } from "chai";
-import { sendRequest } from "./utility.js";
+import { sendPutRequest, sendGetRequest, sendPostRequest, sendDeleteRequest } from "./utility.js";
 import testData from "../request-data.json" assert { type: "json" };
 
 describe("Verify POST endpoint", function () {
   after(async function () {
-    await sendRequest(testData.post.delete);
+    await sendDeleteRequest(testData.post.delete);
   });
 
   it("Verify that post returns code 400 and status bad request if value is not in store", async function () {
@@ -22,9 +22,9 @@ describe("Verify POST endpoint", function () {
   });
 
   it("Verify that post returns added resource with proper content-type", async function () {
-    await sendRequest(testData.put.positive);
+    await sendPutRequest(testData.put.positive);
 
-    const response = await sendRequest(testData.post.positive);
+    const response = await sendPostRequest(testData.post.positive);
 
     expect(response.data).to.deep.equal(testData.post.positive.data);
     expect(
@@ -36,10 +36,10 @@ describe("Verify POST endpoint", function () {
   it("Verify that resource amount is increased by 1 after using POST", async function () {
     let getCurrentArraySize;
     let getNewArraySize;
-    let response = await sendRequest(testData.get.positive);
+    let response = await sendGetRequest(testData.get.positive);
     getCurrentArraySize = await response.data.length;
 
-    response = await sendRequest(testData.get.positive);
+    response = await sendGetRequest(testData.get.positive);
     getNewArraySize = await response.data.length;
     expect(
       getNewArraySize,
@@ -61,10 +61,10 @@ describe("Verify POST endpoint", function () {
   });
 
   it("Verify that POST replaces existing resource", async function () {
-    let response = await sendRequest(testData.get.positive);
+    let response = await sendGetRequest(testData.get.positive);
     let getCurrentArraySize = await response.data.length;
-    await sendRequest(testData.post.replace);
-    response = await sendRequest(testData.get.positive);
+    await sendPostRequest(testData.post.replace);
+    response = await sendGetRequest(testData.get.positive);
     let getNewArraySize = await response.data.length;
 
     expect(

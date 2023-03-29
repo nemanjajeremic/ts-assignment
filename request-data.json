@@ -1,17 +1,9 @@
 {
   "get": {
     "positive": {
-      "method": "get",
       "maxBodyLength": "Infinity",
       "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
       "headers": { "Content-Type": "application/json" }
-    },
-    "negative": {
-      "method": "get",
-      "maxBodyLength": "Infinity",
-      "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
-      "headers": {},
-      "data": "<test>"
     }
   },
   "post": {
@@ -33,7 +25,6 @@
       "data": "a"
     },
     "replace": {
-      "method": "post",
       "maxBodyLength": "Infinity",
       "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
       "headers": { "Content-Type": "application/json" },
@@ -59,7 +50,6 @@
       "data": {}
     },
     "delete": {
-      "method": "delete",
       "maxBodyLength": "Infinity",
       "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
       "headers": { "Content-Type": "application/json" },
@@ -71,7 +61,6 @@
 
   "put": {
     "positive": {
-      "method": "put",
       "maxBodyLength": "Infinity",
       "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
       "headers": { "Content-Type": "application/json" },
@@ -81,7 +70,6 @@
       }
     },
     "delete": {
-      "method": "delete",
       "maxBodyLength": "Infinity",
       "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
       "headers": { "Content-Type": "application/json" },
@@ -230,7 +218,6 @@
   },
   "delete": {
     "positive": {
-      "method": "delete",
       "maxBodyLength": "Infinity",
       "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
       "headers": { "Content-Type": "application/json" },
@@ -246,7 +233,6 @@
       "data": { "main_key": "unexisting key" }
     },
     "toBeDeleted": {
-      "method": "put",
       "maxBodyLength": "Infinity",
       "url": "https://l761dniu80.execute-api.us-east-2.amazonaws.com/default/exercise_api",
       "headers": { "Content-Type": "application/json" },
