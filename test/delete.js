@@ -43,7 +43,6 @@ describe("Verify DELETE endpoint", function () {
     ).to.equal(getCurrentArraySize - 1);
   });
 
-  //negative
   it("Verify that error is thrown while trying to delete non-existing resource", async function () {
     let response = await axios.request(testData.delete.negative);
     expect(response.status, "Status code is wrong").to.equal(400);
