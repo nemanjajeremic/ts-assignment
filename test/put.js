@@ -4,7 +4,7 @@ import {
   sendPutRequest,
   sendGetRequest,
   sendDeleteRequest,
-} from "./utility.js";
+} from "./utils/utility.js";
 import testData from "../request-data.json" assert { type: "json" };
 
 describe("Verify PUT endpoint", function () {

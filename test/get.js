@@ -1,6 +1,6 @@
 import axios from "axios";
 import { expect } from "chai";
-import { sendGetRequest } from "./utility.js";
+import { sendGetRequest } from "./utils/utility.js";
 import testData from "../request-data.json" assert { type: "json" };
 
 describe("Verify GET endpoint", function () {

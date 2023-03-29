@@ -1,6 +1,11 @@
 import axios from "axios";
 import { expect } from "chai";
-import { sendPutRequest, sendGetRequest, sendPostRequest, sendDeleteRequest } from "./utility.js";
+import {
+  sendPutRequest,
+  sendGetRequest,
+  sendPostRequest,
+  sendDeleteRequest,
+} from "./utils/utility.js";
 import testData from "../request-data.json" assert { type: "json" };
 
 describe("Verify POST endpoint", function () {
